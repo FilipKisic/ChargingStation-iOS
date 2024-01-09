@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		120BBAE52B47EB4800D3B3D0 /* ChargingStationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BBAE42B47EB4800D3B3D0 /* ChargingStationApp.swift */; };
+		120BBAE72B47EB4800D3B3D0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BBAE62B47EB4800D3B3D0 /* ContentView.swift */; };
+		120BBAE92B47EB4900D3B3D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 120BBAE82B47EB4900D3B3D0 /* Assets.xcassets */; };
+		120BBAEC2B47EB4900D3B3D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 120BBAEB2B47EB4900D3B3D0 /* Preview Assets.xcassets */; };
+		120BBAFE2B47FA2200D3B3D0 /* ChargingStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BBAFD2B47FA2200D3B3D0 /* ChargingStation.swift */; };
+		120BBB002B47FAF000D3B3D0 /* ParkingSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120BBAFF2B47FAF000D3B3D0 /* ParkingSpot.swift */; };
+		129941652B4BF93C00671E3D /* ChargingStationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129941642B4BF93C00671E3D /* ChargingStationApi.swift */; };
+		129941672B4C1B7200671E3D /* ChargingStationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129941662B4C1B7200671E3D /* ChargingStationRepository.swift */; };
+		129941692B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129941682B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift */; };
+		1299416B2B4C1C6200671E3D /* GetChargingStationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299416A2B4C1C6200671E3D /* GetChargingStationUseCase.swift */; };
+		1299416D2B4C1CE800671E3D /* ChargingStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */; };
+		129941712B4C291F00671E3D /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 129941702B4C291F00671E3D /* Resolver */; };
+		129941732B4C291F00671E3D /* Resolver-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 129941722B4C291F00671E3D /* Resolver-Dynamic */; };
+		129941752B4C291F00671E3D /* Resolver-Static in Frameworks */ = {isa = PBXBuildFile; productRef = 129941742B4C291F00671E3D /* Resolver-Static */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		120BBAE12B47EB4800D3B3D0 /* ChargingStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChargingStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		120BBAE42B47EB4800D3B3D0 /* ChargingStationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationApp.swift; sourceTree = "<group>"; };
+		120BBAE62B47EB4800D3B3D0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		120BBAE82B47EB4900D3B3D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		120BBAEB2B47EB4900D3B3D0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		120BBAFD2B47FA2200D3B3D0 /* ChargingStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStation.swift; sourceTree = "<group>"; };
+		120BBAFF2B47FAF000D3B3D0 /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
+		129941642B4BF93C00671E3D /* ChargingStationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationApi.swift; sourceTree = "<group>"; };
+		129941662B4C1B7200671E3D /* ChargingStationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationRepository.swift; sourceTree = "<group>"; };
+		129941682B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationRepositoryImpl.swift; sourceTree = "<group>"; };
+		1299416A2B4C1C6200671E3D /* GetChargingStationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChargingStationUseCase.swift; sourceTree = "<group>"; };
+		1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		120BBADE2B47EB4800D3B3D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				129941732B4C291F00671E3D /* Resolver-Dynamic in Frameworks */,
+				129941752B4C291F00671E3D /* Resolver-Static in Frameworks */,
+				129941712B4C291F00671E3D /* Resolver in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		120BBAD82B47EB4800D3B3D0 = {
+			isa = PBXGroup;
+			children = (
+				120BBAE32B47EB4800D3B3D0 /* ChargingStation */,
+				120BBAE22B47EB4800D3B3D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		120BBAE22B47EB4800D3B3D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAE12B47EB4800D3B3D0 /* ChargingStation.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		120BBAE32B47EB4800D3B3D0 /* ChargingStation */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAF52B47F07C00D3B3D0 /* Core */,
+				120BBAF22B47F05D00D3B3D0 /* Data */,
+				120BBAF32B47F06500D3B3D0 /* Domain */,
+				120BBAF42B47F06D00D3B3D0 /* Presentation */,
+				120BBAE42B47EB4800D3B3D0 /* ChargingStationApp.swift */,
+				120BBAE82B47EB4900D3B3D0 /* Assets.xcassets */,
+				120BBAEA2B47EB4900D3B3D0 /* Preview Content */,
+			);
+			path = ChargingStation;
+			sourceTree = "<group>";
+		};
+		120BBAEA2B47EB4900D3B3D0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAEB2B47EB4900D3B3D0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		120BBAF22B47F05D00D3B3D0 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAF62B47F08200D3B3D0 /* Api */,
+				120BBAF72B47F09A00D3B3D0 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		120BBAF32B47F06500D3B3D0 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAFA2B47F0B500D3B3D0 /* Repository */,
+				120BBAF92B47F0B000D3B3D0 /* Entity */,
+				120BBAF82B47F0A800D3B3D0 /* UseCase */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		120BBAF42B47F06D00D3B3D0 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAFC2B47F0CA00D3B3D0 /* ViewModel */,
+				120BBAFB2B47F0BF00D3B3D0 /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		120BBAF52B47F07C00D3B3D0 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		120BBAF62B47F08200D3B3D0 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				129941642B4BF93C00671E3D /* ChargingStationApi.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		120BBAF72B47F09A00D3B3D0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				129941682B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		120BBAF82B47F0A800D3B3D0 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				1299416A2B4C1C6200671E3D /* GetChargingStationUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		120BBAF92B47F0B000D3B3D0 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAFD2B47FA2200D3B3D0 /* ChargingStation.swift */,
+				120BBAFF2B47FAF000D3B3D0 /* ParkingSpot.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		120BBAFA2B47F0B500D3B3D0 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				129941662B4C1B7200671E3D /* ChargingStationRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		120BBAFB2B47F0BF00D3B3D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				120BBAE62B47EB4800D3B3D0 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		120BBAFC2B47F0CA00D3B3D0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		120BBAE02B47EB4800D3B3D0 /* ChargingStation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 120BBAEF2B47EB4900D3B3D0 /* Build configuration list for PBXNativeTarget "ChargingStation" */;
+			buildPhases = (
+				120BBADD2B47EB4800D3B3D0 /* Sources */,
+				120BBADE2B47EB4800D3B3D0 /* Frameworks */,
+				120BBADF2B47EB4800D3B3D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChargingStation;
+			packageProductDependencies = (
+				129941702B4C291F00671E3D /* Resolver */,
+				129941722B4C291F00671E3D /* Resolver-Dynamic */,
+				129941742B4C291F00671E3D /* Resolver-Static */,
+			);
+			productName = ChargingStation;
+			productReference = 120BBAE12B47EB4800D3B3D0 /* ChargingStation.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		120BBAD92B47EB4800D3B3D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					120BBAE02B47EB4800D3B3D0 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 120BBADC2B47EB4800D3B3D0 /* Build configuration list for PBXProject "ChargingStation" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 120BBAD82B47EB4800D3B3D0;
+			packageReferences = (
+				1299416F2B4C291F00671E3D /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
+			productRefGroup = 120BBAE22B47EB4800D3B3D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				120BBAE02B47EB4800D3B3D0 /* ChargingStation */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		120BBADF2B47EB4800D3B3D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				120BBAEC2B47EB4900D3B3D0 /* Preview Assets.xcassets in Resources */,
+				120BBAE92B47EB4900D3B3D0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		120BBADD2B47EB4800D3B3D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1299416B2B4C1C6200671E3D /* GetChargingStationUseCase.swift in Sources */,
+				120BBAE72B47EB4800D3B3D0 /* ContentView.swift in Sources */,
+				129941672B4C1B7200671E3D /* ChargingStationRepository.swift in Sources */,
+				1299416D2B4C1CE800671E3D /* ChargingStationViewModel.swift in Sources */,
+				120BBAE52B47EB4800D3B3D0 /* ChargingStationApp.swift in Sources */,
+				129941652B4BF93C00671E3D /* ChargingStationApi.swift in Sources */,
+				120BBB002B47FAF000D3B3D0 /* ParkingSpot.swift in Sources */,
+				129941692B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift in Sources */,
+				120BBAFE2B47FA2200D3B3D0 /* ChargingStation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		120BBAED2B47EB4900D3B3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		120BBAEE2B47EB4900D3B3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		120BBAF02B47EB4900D3B3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ChargingStation/Preview Content\"";
+				DEVELOPMENT_TEAM = JKVW4Y7PD6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comsysto.ChargingStation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		120BBAF12B47EB4900D3B3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ChargingStation/Preview Content\"";
+				DEVELOPMENT_TEAM = JKVW4Y7PD6;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.comsysto.ChargingStation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		120BBADC2B47EB4800D3B3D0 /* Build configuration list for PBXProject "ChargingStation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				120BBAED2B47EB4900D3B3D0 /* Debug */,
+				120BBAEE2B47EB4900D3B3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		120BBAEF2B47EB4900D3B3D0 /* Build configuration list for PBXNativeTarget "ChargingStation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				120BBAF02B47EB4900D3B3D0 /* Debug */,
+				120BBAF12B47EB4900D3B3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1299416F2B4C291F00671E3D /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		129941702B4C291F00671E3D /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1299416F2B4C291F00671E3D /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+		129941722B4C291F00671E3D /* Resolver-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1299416F2B4C291F00671E3D /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = "Resolver-Dynamic";
+		};
+		129941742B4C291F00671E3D /* Resolver-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1299416F2B4C291F00671E3D /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = "Resolver-Static";
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 120BBAD92B47EB4800D3B3D0 /* Project object */;
+}
