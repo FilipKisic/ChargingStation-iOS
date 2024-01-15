@@ -14,7 +14,7 @@ struct ChipView: View {
   // MARK: - BODY
   var body: some View {
     HStack(spacing: 4) {
-      Image("Type2Icon")
+      Image(getIconByType(parkingSpot.type))
         .resizable()
         .scaledToFit()
         .frame(height: 20)
@@ -32,6 +32,16 @@ struct ChipView: View {
       RoundedRectangle(cornerRadius: 20)
         .stroke(Color.black, lineWidth: 2)
     )
+  }
+  
+  // MARK: - FUNCTIONS
+  private func getIconByType(_ type: ChargerType) -> String {
+    switch type {
+      case .type2_11kW, .type2_22kW:
+        return "Type2Icon"
+      case .ccs2_24kW:
+        return "CCS2Icon"
+    }
   }
 }
 

@@ -24,24 +24,26 @@ struct ListScreenView: View {
   
   // MARK: - BODY
   var body: some View {
-    VStack {
-      switch chargingStationViewModel.chargingStationListState {
-        case .loading:
-          ProgressView()
-        case .empty:
-          Text("There are no charging stations to show...")
-        case .success(let chargingStations):
-          ForEach(chargingStations) { chargingStation in
-            Text(chargingStation.title)
-          }
-        case .error(let error):
-          Text("There was an error: \(error.localizedDescription)")
+    ZStack {
+      LinearGradient(colors: [.backgroundGreen, .backgroundWhite], startPoint: .top, endPoint: .bottom)
+        .edgesIgnoringSafeArea(.all)
+      VStack {
+        switch chargingStationViewModel.chargingStationListState {
+          case .loading:
+            ProgressView()
+          case .empty:
+            Text("There are no charging stations to show...")
+          case .success(let chargingStations):
+            CardListView(chargingStations: chargingStations)
+          case .error(let error):
+            Text("There was an error: \(error.localizedDescription)")
+        }
       }
-    }
-    .navigationTitle("Charging stations")
-    .onAppear{
-      Task {
-        await chargingStationViewModel.getAll()
+      .navigationTitle("Charging stations")
+      .onAppear{
+        Task {
+          await chargingStationViewModel.getAll()
+        }
       }
     }
   }

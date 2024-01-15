@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct CardItemView: View {
+struct CardView: View {
   // MARK: - PROPERTIES
   let chargingStation: ChargingStation
   
   // MARK: - BODY
   var body: some View {
     HStack {
-      Image(.myProfile)
+      Image(.chargerPlaceholder)
         .resizable()
         .scaledToFill()
-        .frame(width: 100, height: 110)
+        .frame(width: 100, height: calculateHeight(numberOfTypes: chargingStation.parkingSpots.count))
         .cornerRadius(10.0)
       VStack(alignment: .leading) {
         Text(chargingStation.title)
@@ -26,6 +26,7 @@ struct CardItemView: View {
           .foregroundStyle(.gray)
           .font(.system(size: 14, design: .rounded))
         ChipListView(parkingSpots: chargingStation.parkingSpots)
+        Spacer()
         if chargingStation.hasFreeSpots {
           Text("Free parking spots")
             .font(.system(size: 12, weight: .bold, design: .rounded))
@@ -37,12 +38,23 @@ struct CardItemView: View {
         }
         
       } //: VSTACK
-      .padding(.horizontal)
+      .padding(.horizontal, 5)
     } //: HSTACK
-    .padding()
+    .frame(height: calculateHeight(numberOfTypes: chargingStation.parkingSpots.count))
+    .padding(20)
     .background(Color.white)
     .cornerRadius(20)
-    .shadow(radius:  10, x: 0, y: 5)
+    .shadow(radius: 10, x: 0, y: 2)
+  }
+  
+  // MARK: - FUNCTIONS
+  private func calculateHeight(numberOfTypes: Int) -> CGFloat {
+    let numOfRows = numberOfTypes % 2 == 0 ? numberOfTypes / 2 : (numberOfTypes / 2) + 1
+    
+    if numOfRows == 1 {
+      return CGFloat(110)
+    }
+    return CGFloat (110 + (numOfRows - 1) * 20)
   }
 }
 
@@ -51,6 +63,9 @@ struct CardItemView: View {
   let spotOne = ParkingSpot(quantity: 2, type: .type2_22kW)
   let spotTwo = ParkingSpot(quantity: 11, type: .type2_11kW)
   let spotThree = ParkingSpot(quantity: 4, type: .type2_11kW)
+  let spotFour = ParkingSpot(quantity: 1, type: .ccs2_24kW)
+  let spotFive = ParkingSpot(quantity: 3, type: .ccs2_24kW)
+  let spotSix = ParkingSpot(quantity: 16, type: .type2_11kW)
   
   let chargingStation = ChargingStation(
     id: 1,
@@ -63,12 +78,5 @@ struct CardItemView: View {
     hasFreeSpots: true
   )
   
-  return VStack {
-    CardItemView(chargingStation: chargingStation)
-    CardItemView(chargingStation: chargingStation)
-    CardItemView(chargingStation: chargingStation)
-    CardItemView(chargingStation: chargingStation)
-  }
-  .padding()
-  .edgesIgnoringSafeArea(.all)
+  return CardView(chargingStation: chargingStation).padding()
 }
