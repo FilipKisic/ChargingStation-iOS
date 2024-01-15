@@ -6,27 +6,27 @@
 //
 
 import Foundation
-import Resolver
+import Dependency
 
 class ChargingStationViewModel: ObservableObject {
   // MARK: - DEPENDENCIES
-  @Injected var getChargingStationUseCase: GetChargingStationUseCase //add private modifier
-  
-  init(@Injected getChargingStationUseCase: GetChargingStationUseCase) {
-    self.getChargingStationUseCase = getChargingStationUseCase
-  }
+  @Dependency(\.getChargingStationUseCase) private var getChargingStationUseCase
   
   // MARK: - STATE
-  @Published var chargingStaionListState = ChargingStationListState.loading
+  @Published var chargingStationListState = ChargingStationListState.loading
   
   // MARK: - FUNCTIONS
   func getAll() async {
-    self.chargingStaionListState = .loading
+    self.chargingStationListState = .loading
     do {
       let result = try await getChargingStationUseCase.getAll()
-      self.chargingStaionListState = .success(result)
+      if (result.isEmpty) {
+        self.chargingStationListState = .empty
+      } else {
+        self.chargingStationListState = .success(result)
+      }
     } catch {
-      self.chargingStaionListState = .error(error)
+      self.chargingStationListState = .error(error)
     }
   }
 }
@@ -34,5 +34,6 @@ class ChargingStationViewModel: ObservableObject {
 enum ChargingStationListState {
   case loading
   case success([ChargingStation])
+  case empty
   case error(Error)
 }
