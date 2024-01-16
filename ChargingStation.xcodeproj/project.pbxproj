@@ -17,8 +17,8 @@
 		1242D9852B5538CB00789162 /* Dependency in Frameworks */ = {isa = PBXBuildFile; productRef = 1242D9842B5538CB00789162 /* Dependency */; };
 		1242D9872B5538E000789162 /* DependecyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242D9862B5538E000789162 /* DependecyInjectionContainer.swift */; };
 		1242D98A2B5552A700789162 /* CardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242D9892B5552A700789162 /* CardListView.swift */; };
-		1242D98E2B55553F00789162 /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242D98D2B55553F00789162 /* EmptyStateView.swift */; };
-		1242D9902B55554800789162 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242D98F2B55554800789162 /* ErrorStateView.swift */; };
+		1242D98E2B55553F00789162 /* EmptyListStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242D98D2B55553F00789162 /* EmptyListStateView.swift */; };
+		1242D9902B55554800789162 /* ErrorListStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1242D98F2B55554800789162 /* ErrorListStateView.swift */; };
 		124D93BC2B4E7F57001AAAF8 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 124D93BB2B4E7F57001AAAF8 /* Lottie */; };
 		124D93BF2B4E7FB4001AAAF8 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124D93BE2B4E7FB4001AAAF8 /* LottieView.swift */; };
 		124D93C22B4E8002001AAAF8 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 124D93C12B4E8002001AAAF8 /* loading.json */; };
@@ -34,6 +34,7 @@
 		1299416D2B4C1CE800671E3D /* ChargingStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */; };
 		12E177882B50203B00A8E419 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E177872B50203B00A8E419 /* ChipView.swift */; };
 		12E1778A2B5021AA00A8E419 /* ChipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E177892B5021AA00A8E419 /* ChipListView.swift */; };
+		12F5720D2B56BDCB003A47EB /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5720C2B56BDCB003A47EB /* ImageConverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +47,8 @@
 		120BBAFF2B47FAF000D3B3D0 /* ParkingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingSpot.swift; sourceTree = "<group>"; };
 		1242D9862B5538E000789162 /* DependecyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyInjectionContainer.swift; sourceTree = "<group>"; };
 		1242D9892B5552A700789162 /* CardListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardListView.swift; sourceTree = "<group>"; };
-		1242D98D2B55553F00789162 /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
-		1242D98F2B55554800789162 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		1242D98D2B55553F00789162 /* EmptyListStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListStateView.swift; sourceTree = "<group>"; };
+		1242D98F2B55554800789162 /* ErrorListStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorListStateView.swift; sourceTree = "<group>"; };
 		124D93BE2B4E7FB4001AAAF8 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		124D93C12B4E8002001AAAF8 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		12751BF92B4EBD44006457F4 /* HomeScreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreeView.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationViewModel.swift; sourceTree = "<group>"; };
 		12E177872B50203B00A8E419 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 		12E177892B5021AA00A8E419 /* ChipListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipListView.swift; sourceTree = "<group>"; };
+		12F5720C2B56BDCB003A47EB /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,8 +227,8 @@
 			isa = PBXGroup;
 			children = (
 				1242D98B2B55550700789162 /* Card */,
-				1242D98D2B55553F00789162 /* EmptyStateView.swift */,
-				1242D98F2B55554800789162 /* ErrorStateView.swift */,
+				1242D98D2B55553F00789162 /* EmptyListStateView.swift */,
+				1242D98F2B55554800789162 /* ErrorListStateView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -254,6 +256,7 @@
 		124D93B42B4E7B13001AAAF8 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				12F5720B2B56BDBC003A47EB /* Utils */,
 				124D93B62B4E7B42001AAAF8 /* Presentation */,
 			);
 			path = Common;
@@ -323,6 +326,14 @@
 				1242D98C2B55551E00789162 /* List */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		12F5720B2B56BDBC003A47EB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				12F5720C2B56BDCB003A47EB /* ImageConverter.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,13 +417,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12F5720D2B56BDCB003A47EB /* ImageConverter.swift in Sources */,
 				1299416B2B4C1C6200671E3D /* GetChargingStationUseCase.swift in Sources */,
 				120BBAE72B47EB4800D3B3D0 /* SplashScreenView.swift in Sources */,
-				1242D98E2B55553F00789162 /* EmptyStateView.swift in Sources */,
+				1242D98E2B55553F00789162 /* EmptyListStateView.swift in Sources */,
 				129941672B4C1B7200671E3D /* ChargingStationRepository.swift in Sources */,
 				1242D98A2B5552A700789162 /* CardListView.swift in Sources */,
 				12751BFE2B4EC19D006457F4 /* SettingsScreenView.swift in Sources */,
-				1242D9902B55554800789162 /* ErrorStateView.swift in Sources */,
+				1242D9902B55554800789162 /* ErrorListStateView.swift in Sources */,
 				1299416D2B4C1CE800671E3D /* ChargingStationViewModel.swift in Sources */,
 				12751C0B2B4EC924006457F4 /* CardView.swift in Sources */,
 				120BBAE52B47EB4800D3B3D0 /* ChargingStationApp.swift in Sources */,

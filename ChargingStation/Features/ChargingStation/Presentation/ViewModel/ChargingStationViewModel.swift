@@ -8,6 +8,7 @@
 import Foundation
 import Dependency
 
+@MainActor
 class ChargingStationViewModel: ObservableObject {
   // MARK: - DEPENDENCIES
   @Dependency(\.getChargingStationUseCase) private var getChargingStationUseCase

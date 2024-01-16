@@ -24,22 +24,25 @@ struct ListScreenView: View {
   
   // MARK: - BODY
   var body: some View {
-    ZStack {
-      LinearGradient(colors: [.backgroundGreen, .backgroundWhite], startPoint: .top, endPoint: .bottom)
-        .edgesIgnoringSafeArea(.all)
-      VStack {
-        switch chargingStationViewModel.chargingStationListState {
-          case .loading:
-            ProgressView()
-          case .empty:
-            Text("There are no charging stations to show...")
-          case .success(let chargingStations):
-            CardListView(chargingStations: chargingStations)
-          case .error(let error):
-            Text("There was an error: \(error.localizedDescription)")
+    NavigationView {
+      ZStack {
+        LinearGradient(colors: [.backgroundGreen, .backgroundWhite], startPoint: .top, endPoint: .bottom)
+          .edgesIgnoringSafeArea(.all)
+        VStack {
+          switch chargingStationViewModel.chargingStationListState {
+            case .loading:
+              ProgressView()
+            case .empty:
+              EmptyListStateView()
+            case .success(let chargingStations):
+              CardListView(chargingStations: chargingStations)
+            case .error(let error):
+              ErrorListStateView(errorMessage: error.localizedDescription)
+          }
         }
       }
       .navigationTitle("Charging stations")
+      .toolbarBackground(Color.backgroundGreen, for: .navigationBar)
       .onAppear{
         Task {
           await chargingStationViewModel.getAll()
@@ -51,7 +54,7 @@ struct ListScreenView: View {
 
 // MARK: - PREVIEW
 #Preview {
-  NavigationView {
+  NavigationStack {
     ListScreenView()
   }
 }

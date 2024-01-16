@@ -14,7 +14,7 @@ struct CardView: View {
   // MARK: - BODY
   var body: some View {
     HStack {
-      Image(.chargerPlaceholder)
+      Image(uiImage: ImageConverter.base64ToImage(chargingStation.imageBytes) ?? .errorIllustration)
         .resizable()
         .scaledToFill()
         .frame(width: 100, height: calculateHeight(numberOfTypes: chargingStation.parkingSpots.count))

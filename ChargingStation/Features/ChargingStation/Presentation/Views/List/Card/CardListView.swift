@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardListView: View {
-  // MARK: - PROPERTY
+  // MARK: - PROPERTIES
   let chargingStations: [ChargingStation]
   
   // MARK: - BODY
@@ -51,7 +51,7 @@ struct CardListView: View {
   )
   
   return ZStack {
-    LinearGradient(colors: [.accent, .blue], startPoint: .top, endPoint: .bottom)
+    LinearGradient(colors: [.backgroundGreen, .backgroundWhite], startPoint: .top, endPoint: .bottom)
       .edgesIgnoringSafeArea(.all)
     CardListView(chargingStations: [chargingStationOne, chargingStationTwo])
   }

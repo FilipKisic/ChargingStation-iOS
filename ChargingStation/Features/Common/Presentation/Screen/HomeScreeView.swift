@@ -13,7 +13,7 @@ struct HomeScreeView: View {
   
   // MARK: - BODY
   var body: some View {
-    NavigationView {
+    NavigationStack {
       ZStack {
         if self.isLoading {
           SplashScreenView()
