@@ -32,6 +32,9 @@
 		129941692B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129941682B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift */; };
 		1299416B2B4C1C6200671E3D /* GetChargingStationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299416A2B4C1C6200671E3D /* GetChargingStationUseCase.swift */; };
 		1299416D2B4C1CE800671E3D /* ChargingStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */; };
+		12BD60AA2B57C27E009E47AB /* TextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD60A92B57C27E009E47AB /* TextButtonView.swift */; };
+		12BD60AC2B57D6E3009E47AB /* EditScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD60AB2B57D6E3009E47AB /* EditScreenView.swift */; };
+		12BD60AE2B57DB2F009E47AB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BD60AD2B57DB2F009E47AB /* CustomTextField.swift */; };
 		12E177882B50203B00A8E419 /* ChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E177872B50203B00A8E419 /* ChipView.swift */; };
 		12E1778A2B5021AA00A8E419 /* ChipListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12E177892B5021AA00A8E419 /* ChipListView.swift */; };
 		12F5720D2B56BDCB003A47EB /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F5720C2B56BDCB003A47EB /* ImageConverter.swift */; };
@@ -61,6 +64,9 @@
 		129941682B4C1BA300671E3D /* ChargingStationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationRepositoryImpl.swift; sourceTree = "<group>"; };
 		1299416A2B4C1C6200671E3D /* GetChargingStationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChargingStationUseCase.swift; sourceTree = "<group>"; };
 		1299416C2B4C1CE800671E3D /* ChargingStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingStationViewModel.swift; sourceTree = "<group>"; };
+		12BD60A92B57C27E009E47AB /* TextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButtonView.swift; sourceTree = "<group>"; };
+		12BD60AB2B57D6E3009E47AB /* EditScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditScreenView.swift; sourceTree = "<group>"; };
+		12BD60AD2B57DB2F009E47AB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		12E177872B50203B00A8E419 /* ChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipView.swift; sourceTree = "<group>"; };
 		12E177892B5021AA00A8E419 /* ChipListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipListView.swift; sourceTree = "<group>"; };
 		12F5720C2B56BDCB003A47EB /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 			children = (
 				12751BFF2B4EC1C8006457F4 /* ListScreenView.swift */,
 				12751C012B4EC222006457F4 /* ManagementScreenView.swift */,
+				12BD60AB2B57D6E3009E47AB /* EditScreenView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -219,6 +226,7 @@
 				12E177872B50203B00A8E419 /* ChipView.swift */,
 				12E177892B5021AA00A8E419 /* ChipListView.swift */,
 				1242D9892B5552A700789162 /* CardListView.swift */,
+				12BD60A92B57C27E009E47AB /* TextButtonView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -324,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				1242D98C2B55551E00789162 /* List */,
+				12BD60AD2B57DB2F009E47AB /* CustomTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -425,9 +434,12 @@
 				1242D98A2B5552A700789162 /* CardListView.swift in Sources */,
 				12751BFE2B4EC19D006457F4 /* SettingsScreenView.swift in Sources */,
 				1242D9902B55554800789162 /* ErrorListStateView.swift in Sources */,
+				12BD60AC2B57D6E3009E47AB /* EditScreenView.swift in Sources */,
+				12BD60AE2B57DB2F009E47AB /* CustomTextField.swift in Sources */,
 				1299416D2B4C1CE800671E3D /* ChargingStationViewModel.swift in Sources */,
 				12751C0B2B4EC924006457F4 /* CardView.swift in Sources */,
 				120BBAE52B47EB4800D3B3D0 /* ChargingStationApp.swift in Sources */,
+				12BD60AA2B57C27E009E47AB /* TextButtonView.swift in Sources */,
 				129941652B4BF93C00671E3D /* ChargingStationApi.swift in Sources */,
 				12E177882B50203B00A8E419 /* ChipView.swift in Sources */,
 				1242D9872B5538E000789162 /* DependecyInjectionContainer.swift in Sources */,

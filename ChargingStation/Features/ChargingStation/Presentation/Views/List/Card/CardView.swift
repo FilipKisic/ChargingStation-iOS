@@ -10,51 +10,73 @@ import SwiftUI
 struct CardView: View {
   // MARK: - PROPERTIES
   let chargingStation: ChargingStation
+  let isEditable: Bool
   
   // MARK: - BODY
   var body: some View {
-    HStack {
-      Image(uiImage: ImageConverter.base64ToImage(chargingStation.imageBytes) ?? .errorIllustration)
-        .resizable()
-        .scaledToFill()
-        .frame(width: 100, height: calculateHeight(numberOfTypes: chargingStation.parkingSpots.count))
-        .cornerRadius(10.0)
-      VStack(alignment: .leading) {
-        Text(chargingStation.title)
-          .font(.system(size: 14, weight: .bold, design: .rounded))
-        Text(chargingStation.address)
-          .foregroundStyle(.gray)
-          .font(.system(size: 14, design: .rounded))
-        ChipListView(parkingSpots: chargingStation.parkingSpots)
-        Spacer()
-        if chargingStation.hasFreeSpots {
-          Text("Free parking spots")
-            .font(.system(size: 12, weight: .bold, design: .rounded))
-            .foregroundStyle(.accent)
-        } else {
-          Text("All spots are occupied")
-            .font(.system(size: 12, weight: .bold, design: .rounded))
-            .foregroundStyle(.red)
-        }
+    VStack {
+      HStack {
+        Image(uiImage: ImageConverter.base64ToImage(chargingStation.imageBytes) ?? .errorIllustration)
+          .resizable()
+          .scaledToFill()
+          .frame(width: 100, height: calculateImageHeight())
+          .cornerRadius(10.0)
         
-      } //: VSTACK
-      .padding(.horizontal, 5)
-    } //: HSTACK
-    .frame(height: calculateHeight(numberOfTypes: chargingStation.parkingSpots.count))
+        VStack(alignment: .leading) {
+          Text(chargingStation.title)
+            .font(.system(size: 14, weight: .bold, design: .rounded))
+          Text(chargingStation.address)
+            .foregroundStyle(.gray)
+            .font(.system(size: 14, design: .rounded))
+          ChipListView(parkingSpots: chargingStation.parkingSpots)
+          
+          Spacer()
+          
+          if chargingStation.hasFreeSpots {
+            Text("Free parking spots")
+              .font(.system(size: 12, weight: .bold, design: .rounded))
+              .foregroundStyle(.accent)
+          } else {
+            Text("All spots are occupied")
+              .font(.system(size: 12, weight: .bold, design: .rounded))
+              .foregroundStyle(.red)
+          }
+        } //: VSTACK
+        .padding(.horizontal, 5)
+        
+      } //: HSTACK
+      if isEditable {
+        HStack {
+          Spacer()
+          TextButtonView(iconName: "trash.fill", text: "Delete", color: .red)
+          Spacer()
+          TextButtonView(iconName: "pencil", text: "Edit")
+          Spacer()
+        } //: HSTACK
+        .padding(.vertical, 5)
+      } //: IF CLAUSE
+    } //: VSTACK
+    .frame(height: calculateHeight())
     .padding(20)
-    .background(Color.white)
+    .background(.backgroundMain)
     .cornerRadius(20)
-    .shadow(radius: 10, x: 0, y: 2)
+    .shadow(color: .secondary.opacity(0.20), radius: 5, x: 0, y: 5)
   }
   
   // MARK: - FUNCTIONS
-  private func calculateHeight(numberOfTypes: Int) -> CGFloat {
+  private func calculateImageHeight() -> CGFloat {
+    return isEditable ? calculateHeight() - 40 : calculateHeight()
+  }
+  
+  private func calculateHeight() -> CGFloat {
+    let numberOfTypes = self.chargingStation.parkingSpots.count
     let numOfRows = numberOfTypes % 2 == 0 ? numberOfTypes / 2 : (numberOfTypes / 2) + 1
     
     if numOfRows == 1 {
-      return CGFloat(110)
+      return isEditable ? 140 : 110
+    } else {
+      return CGFloat ((isEditable ? 140 : 110) + (numOfRows - 1) * 20)
     }
-    return CGFloat (110 + (numOfRows - 1) * 20)
   }
 }
 
@@ -78,5 +100,5 @@ struct CardView: View {
     hasFreeSpots: true
   )
   
-  return CardView(chargingStation: chargingStation).padding()
+  return CardView(chargingStation: chargingStation, isEditable: true).padding()
 }

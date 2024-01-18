@@ -10,13 +10,27 @@ import SwiftUI
 struct CardListView: View {
   // MARK: - PROPERTIES
   let chargingStations: [ChargingStation]
+  let isEditable: Bool
+  
+  // MARK: - STATE
+  @State private var offsetValue = 200.0
+  @State private var opacityValue = 0.0
   
   // MARK: - BODY
   var body: some View {
     List(chargingStations, id: \.id) { chargingStation in
-      CardView(chargingStation: chargingStation)
+      CardView(chargingStation: chargingStation, isEditable: isEditable)
         .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
+        .offset(x: offsetValue)
+        .opacity(opacityValue)
+        .onAppear {
+          withAnimation(.easeInOut) {
+            offsetValue = 0
+            opacityValue = 1.0
+          }
+        }
+        .transition(.move(edge: .leading))
     } //: LIST
     .listStyle(.plain)
   }
@@ -51,8 +65,8 @@ struct CardListView: View {
   )
   
   return ZStack {
-    LinearGradient(colors: [.backgroundGreen, .backgroundWhite], startPoint: .top, endPoint: .bottom)
+    LinearGradient(colors: [.backgroundAccent, .backgroundMain], startPoint: .top, endPoint: .bottom)
       .edgesIgnoringSafeArea(.all)
-    CardListView(chargingStations: [chargingStationOne, chargingStationTwo])
+    CardListView(chargingStations: [chargingStationOne, chargingStationTwo], isEditable: false)
   }
 }

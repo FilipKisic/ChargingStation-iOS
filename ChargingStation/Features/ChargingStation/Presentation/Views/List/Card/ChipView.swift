@@ -25,12 +25,12 @@ struct ChipView: View {
     .padding(.vertical, 2)
     .padding(.leading, 4)
     .padding(.trailing, 10)
-    .foregroundColor(Color.black)
-    .background(Color.white)
+    .foregroundColor(Color.primary)
+    .background(Color.backgroundMain)
     .cornerRadius(20)
     .overlay(
       RoundedRectangle(cornerRadius: 20)
-        .stroke(Color.black, lineWidth: 2)
+        .stroke(Color.primary, lineWidth: 2)
     )
   }
   
@@ -38,9 +38,9 @@ struct ChipView: View {
   private func getIconByType(_ type: ChargerType) -> String {
     switch type {
       case .type2_11kW, .type2_22kW:
-        return "Type2Icon"
+        return "type2"
       case .ccs2_24kW:
-        return "CCS2Icon"
+        return "ccs2"
     }
   }
 }

@@ -26,7 +26,7 @@ struct ListScreenView: View {
   var body: some View {
     NavigationView {
       ZStack {
-        LinearGradient(colors: [.backgroundGreen, .backgroundWhite], startPoint: .top, endPoint: .bottom)
+        LinearGradient(colors: [.backgroundAccent, .backgroundMain], startPoint: .top, endPoint: .bottom)
           .edgesIgnoringSafeArea(.all)
         VStack {
           switch chargingStationViewModel.chargingStationListState {
@@ -35,14 +35,14 @@ struct ListScreenView: View {
             case .empty:
               EmptyListStateView()
             case .success(let chargingStations):
-              CardListView(chargingStations: chargingStations)
+              CardListView(chargingStations: chargingStations, isEditable: false)
             case .error(let error):
               ErrorListStateView(errorMessage: error.localizedDescription)
           }
-        }
-      }
+        } //: VSTACK
+      } //: ZSTACK
       .navigationTitle("Charging stations")
-      .toolbarBackground(Color.backgroundGreen, for: .navigationBar)
+      .toolbarBackground(Color.backgroundMain, for: .navigationBar)
       .onAppear{
         Task {
           await chargingStationViewModel.getAll()

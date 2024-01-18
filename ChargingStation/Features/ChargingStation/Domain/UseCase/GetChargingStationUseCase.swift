@@ -14,6 +14,9 @@ class GetChargingStationUseCase {
     self.chargingStationRepository = chargingStationRepository
   }
   
+  /// Returns a list of all chargingStations.
+  /// - Throws: `DecodingError` if the response is not properly decoded.
+  /// - Returns: List of charging stations -> `[ChargingStation]`.
   func getAll() async throws -> [ChargingStation] {
     return try await chargingStationRepository.getAll()
   }
