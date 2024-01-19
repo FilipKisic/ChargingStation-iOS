@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct EditScreenView: View {
-  // MARK: - PROPERTIES
+  // MARK: - TEXT FIELD STATE
   @State private var title: String = ""
   @State private var address: String = ""
-  @State private var latitude: Double = 0.0
-  @State private var longitude: Double = 0.0
+  @State private var latitude: String = ""
+  @State private var longitude: String = ""
+  @FocusState private var focusedField: FocusedField?
+  
+  // MARK: - ERROR STATE
+  @State private var titleError: String = ""
+  @State private var addressError: String = ""
+  @State private var latitudeError: String = ""
+  @State private var longitudeError: String = ""
+  
+  // MARK: - INPUT FIELD ENUM
+  enum FocusedField {
+    case title, address, lat, lng
+  }
+  
+  let coordinatesFormatter: NumberFormatter = {
+    let formatter = NumberFormatter()
+    formatter.allowsFloats = true
+    formatter.locale = Locale.current
+    formatter.numberStyle = .decimal
+    return formatter
+  }()
   
   // MARK: - PREVIEW
   var body: some View {
@@ -26,17 +46,52 @@ struct EditScreenView: View {
           .listRowInsets(.none)
         Text("Please enter all details about the station.")
           .font(.caption)
+          .fontDesign(.rounded)
+          .padding(.bottom, 20)
         
-        Form {
-          TextField("Title", text: $title)
-            .textFieldStyle(CustomTextFieldStyle())
-            .listRowInsets(.init())
-          TextField("Address", text: $address)
-            .textFieldStyle(.plain)
-          TextField("Address", text: $address)
-            .textFieldStyle(.plain)
+        CustomTextField(
+          text: $title,
+          error: $titleError,
+          label: "Title",
+          iconName: "pencil"
+        )
+        .focused($focusedField, equals: .title)
+        .onSubmit {
+          focusedField = .address
         }
-        .background(.backgroundMain).scrollContentBackground(.hidden)
+        .padding(.bottom, 10)
+        
+        CustomTextField(
+          text: $address,
+          error: $addressError,
+          label: "Address",
+          iconName: "pencil"
+        )
+        .focused($focusedField, equals: .address)
+        .onSubmit {
+          focusedField = .lat
+        }
+        .padding(.bottom, 10)
+        
+        CustomTextField(
+          text: $latitude,
+          error: $latitudeError,
+          label: "Latitude",
+          iconName: "pencil",
+          isNumber: true
+        )
+        .focused($focusedField, equals: .lat)
+        .padding(.bottom, 10)
+        
+        CustomTextField(
+          text: $longitude,
+          error: $longitudeError,
+          label: "Longitude",
+          iconName: "pencil",
+          isNumber: true
+        )
+        .focused($focusedField, equals: .lng)
+        .padding(.bottom, 10)
         
         Spacer()
         
@@ -52,7 +107,20 @@ struct EditScreenView: View {
         .buttonStyle(.borderedProminent)
       } //: VSTACK
       .padding()
-    }
+      .toolbar {
+        ToolbarItem(placement: .keyboard) {
+          Spacer()
+        }
+        
+        ToolbarItem(placement: .keyboard) {
+          Button {
+            focusedField = nil
+          } label: {
+            Image(systemName: "keyboard.chevron.compact.down")
+          }
+        } //: TOOLBAR ITEM
+      } //: TOOLBAR
+    } //: ZSTACK
   }
 }
 
@@ -60,3 +128,15 @@ struct EditScreenView: View {
 #Preview {
   EditScreenView()
 }
+
+//Form {
+//  TextField("Title", text: $title)
+//    .textFieldStyle(.plain)
+//  TextField("Address", text: $address)
+//    .textFieldStyle(.plain)
+//  //TextField("Latitude", value: $latitude)
+//    //.textFieldStyle(.plain)
+//  //TextField("Longitude", value: $longitude)
+//    //.textFieldStyle(.plain)
+//}
+//.background(.backgroundMain).scrollContentBackground(.hidden)
