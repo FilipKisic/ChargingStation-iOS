@@ -15,16 +15,16 @@ struct NumbersOnlyViewModifier: ViewModifier {
   
   func body(content: Content) -> some View {
     content
-      .keyboardType(isDecimal ? .decimalPad : .numberPad)
+      .keyboardType(isDecimal ? .numbersAndPunctuation : .numberPad)
       .onReceive(Just(text), perform: { newValue in
-        var numbers = "0123456789"
+        var numbers = "-0123456789"
         let decimalSeparator = Locale.current.decimalSeparator ?? "."
         
         if isDecimal {
           numbers += decimalSeparator
         }
         
-        if newValue.components(separatedBy: decimalSeparator).count - 1 > 1 {
+        if breaksRuleOfSingleCharacter(newValue, decimalSeparator) || breaksRuleOfSingleCharacter(newValue, "-") {
           let filtered = newValue
           self.text = String(filtered.dropLast())
         } else {
@@ -33,8 +33,11 @@ struct NumbersOnlyViewModifier: ViewModifier {
             self.text = filtered
           }
         }
-        
       })
+  }
+  
+  private func breaksRuleOfSingleCharacter(_ value: String, _ character: String) -> Bool{
+    return value.components(separatedBy: character).count - 1 > 1
   }
 }
 

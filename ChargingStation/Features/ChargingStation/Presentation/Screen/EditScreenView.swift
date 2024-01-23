@@ -34,7 +34,7 @@ struct EditScreenView: View {
     return formatter
   }()
   
-  // MARK: - PREVIEW
+  // MARK: - BODY
   var body: some View {
     ZStack {
       Color.backgroundMain.ignoresSafeArea()
@@ -53,7 +53,8 @@ struct EditScreenView: View {
           text: $title,
           error: $titleError,
           label: "Title",
-          iconName: "pencil"
+          iconName: "pencil",
+          validation: validateTitle
         )
         .focused($focusedField, equals: .title)
         .onSubmit {
@@ -65,7 +66,8 @@ struct EditScreenView: View {
           text: $address,
           error: $addressError,
           label: "Address",
-          iconName: "pencil"
+          iconName: "building.2",
+          validation: validateAddress
         )
         .focused($focusedField, equals: .address)
         .onSubmit {
@@ -77,8 +79,9 @@ struct EditScreenView: View {
           text: $latitude,
           error: $latitudeError,
           label: "Latitude",
-          iconName: "pencil",
-          isNumber: true
+          iconName: "arrow.up.and.down",
+          isNumber: true,
+          validation: validateLatitude
         )
         .focused($focusedField, equals: .lat)
         .padding(.bottom, 10)
@@ -87,8 +90,9 @@ struct EditScreenView: View {
           text: $longitude,
           error: $longitudeError,
           label: "Longitude",
-          iconName: "pencil",
-          isNumber: true
+          iconName: "arrow.left.and.right",
+          isNumber: true,
+          validation: validateLongitude
         )
         .focused($focusedField, equals: .lng)
         .padding(.bottom, 10)
@@ -96,7 +100,9 @@ struct EditScreenView: View {
         Spacer()
         
         Button {
-          print("Add new charging station")
+          if isFormValid() {
+            print("Add new charging station")
+          }
         } label: {
           Text("Add charging station")
             .fontWeight(.bold)
@@ -122,21 +128,58 @@ struct EditScreenView: View {
       } //: TOOLBAR
     } //: ZSTACK
   }
+  
+  // MARK: - FUNCTIONS
+  private func validateTitle() {
+    if title.isEmpty {
+      titleError = "Title must not be empty."
+    } else {
+      titleError = ""
+    }
+  }
+  
+  private func validateAddress() {
+    if address.isEmpty {
+      addressError = "Address must not be empty."
+    } else {
+      addressError = ""
+    }
+  }
+  
+  private func validateLatitude() {
+    let latitudeNumber =  Double(latitude) ?? 0.0
+    
+    if latitude.isEmpty {
+      latitudeError = "Latitude must not be empty."
+    } else if latitudeNumber < -90.0 || latitudeNumber > 90.0 {
+      latitudeError = "Latitude must be in range between -90.0 and 90.0."
+    } else {
+      latitudeError = ""
+    }
+  }
+  
+  private func validateLongitude() {
+    let longitudeNumber = Double(longitude) ?? 0.0
+    
+    if longitude.isEmpty {
+      longitudeError = "Longitude must not be empty."
+    } else if longitudeNumber < -180 || longitudeNumber > 180 {
+      longitudeError = "Longitude must be in range between -180.0 nad 180.0."
+    } else {
+      longitudeError = ""
+    }
+  }
+  
+  private func isFormValid() -> Bool {
+    validateTitle()
+    validateAddress()
+    validateLatitude()
+    validateLongitude()
+    return titleError.isEmpty && addressError.isEmpty && latitudeError.isEmpty && longitudeError.isEmpty
+  }
 }
 
 // MARK: - PREVIEW
 #Preview {
   EditScreenView()
 }
-
-//Form {
-//  TextField("Title", text: $title)
-//    .textFieldStyle(.plain)
-//  TextField("Address", text: $address)
-//    .textFieldStyle(.plain)
-//  //TextField("Latitude", value: $latitude)
-//    //.textFieldStyle(.plain)
-//  //TextField("Longitude", value: $longitude)
-//    //.textFieldStyle(.plain)
-//}
-//.background(.backgroundMain).scrollContentBackground(.hidden)

@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct CustomTextField: View {
-  // MARK: - PROPERTIES
+  // MARK: - BINDINGS
   @Binding var text: String
   @Binding var error: String
+  
+  // MARK: - PROPERTIES
   let label: String
   let iconName: String
   var isNumber: Bool = false
+  var validation: () -> Void
   
   // MARK: - BODY
   var body: some View {
@@ -23,17 +26,17 @@ struct CustomTextField: View {
           .fontDesign(.rounded)
           .padding(.horizontal, 10)
           .padding(.vertical, 12)
+          .onChange(of: text) {
+            validation()
+          }
           .if(isNumber) { view in
             view.numbersOnly($text, isDecimal: true)
-          }
-          .onChange(of: text) {
-            error = text.isEmpty ? "Title must not be empty" : ""
           }
         
         Image(systemName: iconName)
           .resizable()
           .scaledToFit()
-          .frame(height: 20)
+          .frame(width: 20, height: 20)
           .foregroundColor(.secondary.opacity(0.35))
           .padding(.trailing, 10)
       } //: HSTACK
@@ -59,7 +62,13 @@ struct CustomTextField: View {
   @State var title = ""
   @State var error = ""
   
-  return CustomTextField(text: $title, error: $error, label: "Title", iconName: "pencil")
+  func validateTitle() {
+    if title.isEmpty {
+      error = "Hey"
+    }
+  }
+  
+  return CustomTextField(text: $title, error: $error, label: "Title", iconName: "arrow.up.and.down", validation: validateTitle)
     .padding()
 }
 
