@@ -16,7 +16,7 @@ struct CardView: View {
   var body: some View {
     VStack {
       HStack {
-        Image(uiImage: ImageConverter.base64ToImage(chargingStation.imageBytes) ?? .errorIllustration)
+        Image(uiImage: (chargingStation.imageBytes.isEmpty ? .errorIllustration : ImageConverter.base64ToImage(chargingStation.imageBytes))!)
           .resizable()
           .scaledToFill()
           .frame(width: 100, height: calculateImageHeight())

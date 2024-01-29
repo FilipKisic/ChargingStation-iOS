@@ -11,6 +11,7 @@ struct CustomTextField: View {
   // MARK: - BINDINGS
   @Binding var text: String
   @Binding var error: String
+  @Binding var isDisabled: Bool
   
   // MARK: - PROPERTIES
   let label: String
@@ -29,6 +30,7 @@ struct CustomTextField: View {
           .onChange(of: text) {
             validation()
           }
+          .disabled(isDisabled)
           .if(isNumber) { view in
             view.numbersOnly($text, isDecimal: true)
           }
@@ -61,6 +63,7 @@ struct CustomTextField: View {
 #Preview {
   @State var title = ""
   @State var error = ""
+  @State var isDisabled = false
   
   func validateTitle() {
     if title.isEmpty {
@@ -68,8 +71,15 @@ struct CustomTextField: View {
     }
   }
   
-  return CustomTextField(text: $title, error: $error, label: "Title", iconName: "arrow.up.and.down", validation: validateTitle)
-    .padding()
+  return CustomTextField(
+    text: $title,
+    error: $error,
+    isDisabled: $isDisabled,
+    label: "Title",
+    iconName: "arrow.up.and.down",
+    validation: validateTitle
+  )
+  .padding()
 }
 
 extension View {

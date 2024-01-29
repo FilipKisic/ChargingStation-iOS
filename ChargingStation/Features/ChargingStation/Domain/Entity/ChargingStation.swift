@@ -8,7 +8,7 @@
 import Foundation
 
 struct ChargingStation: Identifiable, Codable {
-  let id: Int
+  let id: Int?
   let imageBytes: String
   let title: String
   let address: String

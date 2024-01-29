@@ -22,7 +22,12 @@ private struct ChargingStationRepositoryKey: DependencyKey {
 // MARK: - USE CASE
 private struct GetChargingStationUseCaseKey: DependencyKey {
   @Dependency(\.chargingStationRepository) private static var chargingStationRepository
-  static var currentValue: GetChargingStationUseCase = GetChargingStationUseCase(chargingStationRepository: chargingStationRepository)
+  static var currentValue: GetChargingStationUseCase = GetChargingStationUseCase(repository: chargingStationRepository)
+}
+
+private struct SaveChargingStationUseCaseKey: DependencyKey {
+  @Dependency(\.chargingStationRepository) private static var chargingStationRepository
+  static var currentValue: SaveChargingStationUseCase = SaveChargingStationUseCase(repository: chargingStationRepository)
 }
 
 extension DependencyValues {
@@ -39,5 +44,10 @@ extension DependencyValues {
   var getChargingStationUseCase: GetChargingStationUseCase {
     get { Self[GetChargingStationUseCaseKey.self] }
     set { Self[GetChargingStationUseCaseKey.self] = newValue }
+  }
+  
+  var saveChargingStationUseCase: SaveChargingStationUseCase {
+    get { Self[SaveChargingStationUseCaseKey.self] }
+    set { Self[SaveChargingStationUseCaseKey.self] = newValue }
   }
 }

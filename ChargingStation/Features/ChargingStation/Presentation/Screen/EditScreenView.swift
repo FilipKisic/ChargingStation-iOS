@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct EditScreenView: View {
+  // MARK: - PROPERTIES
+  @StateObject private var viewModel = ChargingStationViewModel()
+  
   // MARK: - TEXT FIELD STATE
   @State private var title: String = ""
   @State private var address: String = ""
@@ -20,6 +23,10 @@ struct EditScreenView: View {
   @State private var addressError: String = ""
   @State private var latitudeError: String = ""
   @State private var longitudeError: String = ""
+  
+  // MARK: - LOCAL STATE
+  @State private var isAlertShown = false
+  @State private var isLoading = false
   
   // MARK: - INPUT FIELD ENUM
   enum FocusedField {
@@ -52,6 +59,7 @@ struct EditScreenView: View {
         CustomTextField(
           text: $title,
           error: $titleError,
+          isDisabled: $isLoading,
           label: "Title",
           iconName: "pencil",
           validation: validateTitle
@@ -65,6 +73,7 @@ struct EditScreenView: View {
         CustomTextField(
           text: $address,
           error: $addressError,
+          isDisabled: $isLoading,
           label: "Address",
           iconName: "building.2",
           validation: validateAddress
@@ -78,6 +87,7 @@ struct EditScreenView: View {
         CustomTextField(
           text: $latitude,
           error: $latitudeError,
+          isDisabled: $isLoading,
           label: "Latitude",
           iconName: "arrow.up.and.down",
           isNumber: true,
@@ -89,6 +99,7 @@ struct EditScreenView: View {
         CustomTextField(
           text: $longitude,
           error: $longitudeError,
+          isDisabled: $isLoading,
           label: "Longitude",
           iconName: "arrow.left.and.right",
           isNumber: true,
@@ -101,18 +112,29 @@ struct EditScreenView: View {
         
         Button {
           if isFormValid() {
-            print("Add new charging station")
+            createNewStation()
           }
         } label: {
-          Text("Add charging station")
-            .fontWeight(.bold)
-            .fontDesign(.rounded)
-            .padding(.vertical, 10)
-            .frame(maxWidth: .infinity)
+          if viewModel.saveState == .loading {
+            Spacer()
+            ProgressView()
+              .progressViewStyle(CircularProgressViewStyle())
+              .foregroundColor(.backgroundMain)
+              .padding(.vertical, 10)
+            Spacer()
+          } else {
+            Text("Add charging station")
+              .fontWeight(.bold)
+              .fontDesign(.rounded)
+              .padding(.vertical, 10)
+              .frame(maxWidth: .infinity)
+          }
         }
         .buttonStyle(.borderedProminent)
+        .disabled(isLoading)
       } //: VSTACK
       .padding()
+      .ignoresSafeArea(.keyboard, edges: .bottom)
       .toolbar {
         ToolbarItem(placement: .keyboard) {
           Spacer()
@@ -126,24 +148,20 @@ struct EditScreenView: View {
           }
         } //: TOOLBAR ITEM
       } //: TOOLBAR
+      
+      if isAlertShown {
+        StatusDialog(isShown: $isAlertShown, type: viewModel.saveState == .success ? .success : .error)
+      }
     } //: ZSTACK
   }
   
   // MARK: - FUNCTIONS
   private func validateTitle() {
-    if title.isEmpty {
-      titleError = "Title must not be empty."
-    } else {
-      titleError = ""
-    }
+    titleError = title.isEmpty ? "Title must not be empty." : ""
   }
   
   private func validateAddress() {
-    if address.isEmpty {
-      addressError = "Address must not be empty."
-    } else {
-      addressError = ""
-    }
+    addressError = address.isEmpty ? "Address must not be empty." : ""
   }
   
   private func validateLatitude() {
@@ -176,6 +194,29 @@ struct EditScreenView: View {
     validateLatitude()
     validateLongitude()
     return titleError.isEmpty && addressError.isEmpty && latitudeError.isEmpty && longitudeError.isEmpty
+  }
+  
+  private func createNewStation() {
+    isLoading.toggle()
+    
+    let station = ChargingStation(
+      id: nil,
+      imageBytes: "",
+      title: title,
+      address: address,
+      latitude: coordinatesFormatter.number(from: latitude)?.doubleValue ?? 0.0,
+      longitude: coordinatesFormatter.number(from: longitude)?.doubleValue ?? 0.0,
+      parkingSpots: [],
+      hasFreeSpots: true
+    )
+    
+    Task {
+      await viewModel.save(station)
+      withAnimation {
+        isAlertShown.toggle()
+        isLoading.toggle()
+      }
+    }
   }
 }
 

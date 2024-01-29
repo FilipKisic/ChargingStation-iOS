@@ -8,16 +8,16 @@
 import Foundation
 
 class GetChargingStationUseCase {
-  private let chargingStationRepository: ChargingStationRepository
+  private let repository: ChargingStationRepository
   
-  init(chargingStationRepository: ChargingStationRepository) {
-    self.chargingStationRepository = chargingStationRepository
+  init(repository: ChargingStationRepository) {
+    self.repository = repository
   }
   
-  /// Returns a list of all chargingStations.
+  /// Returns a list of all charging stations.
   /// - Throws: `DecodingError` if the response is not properly decoded.
   /// - Returns: List of charging stations -> `[ChargingStation]`.
   func getAll() async throws -> [ChargingStation] {
-    return try await chargingStationRepository.getAll()
+    return try await repository.getAll()
   }
 }

@@ -12,4 +12,9 @@ protocol ChargingStationRepository {
   /// - Throws: `DecodingError` if the response is not properly decoded.
   /// - Returns: List of charging stations -> `[ChargingStation]`.
   func getAll() async throws -> [ChargingStation]
+  
+  /// If station doesn't exist, the datasource will create new, else it will update the existing station.
+  ///  - Parameter station: New charging station that needs to be created.
+  ///  - Throws: `EncodingError` if the new charging station is not properly encoded.
+  func save(_ station: ChargingStation) async throws -> Void
 }

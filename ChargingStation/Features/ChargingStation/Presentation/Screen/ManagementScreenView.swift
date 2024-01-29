@@ -30,7 +30,7 @@ struct ManagementScreenView: View {
         LinearGradient(colors: [.backgroundAccent, .backgroundMain], startPoint: .top, endPoint: .bottom)
           .edgesIgnoringSafeArea(.all)
         VStack {
-          switch chargingStationViewModel.chargingStationListState {
+          switch chargingStationViewModel.listState {
             case .loading:
               ProgressView()
             case .empty:
