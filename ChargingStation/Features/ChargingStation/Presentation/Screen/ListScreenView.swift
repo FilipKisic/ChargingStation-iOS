@@ -11,17 +11,6 @@ struct ListScreenView: View {
   // MARK: - PROPERTIES
   @StateObject private var chargingStationViewModel = ChargingStationViewModel()
   
-  // MARK: - CONSTRUCTOR
-  init() {
-    var titleFont = UIFont.preferredFont(forTextStyle: .largeTitle)
-    titleFont = UIFont(
-      descriptor: titleFont.fontDescriptor.withDesign(.rounded)?.withSymbolicTraits(.traitBold) ?? titleFont.fontDescriptor,
-      size: titleFont.pointSize
-    )
-    
-    UINavigationBar.appearance().largeTitleTextAttributes = [.font: titleFont]
-  }
-  
   // MARK: - BODY
   var body: some View {
     NavigationView {
